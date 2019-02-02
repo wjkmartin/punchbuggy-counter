@@ -1,0 +1,19 @@
+{
+  "name": "punchbuggy-counter",
+  "version": "1.0.3",
+  "description": "A utility for tracking the punchbuggy competition between me and my girlfriend.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wjkmartin/punchbuggy-counter.git"
+  },
+  "author": "William Martin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wjkmartin/punchbuggy-counter/issues"
+  },
+  "homepage": "https://github.com/wjkmartin/punchbuggy-counter#readme"
+}
