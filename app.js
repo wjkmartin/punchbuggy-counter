@@ -1,12 +1,3 @@
-var config = {
-    apiKey: "AAAARBOssDY:APA91bF16wbUSOA-J8F1ZMEQ0B4Ml7OKTJK3D3YKD6tpeDvL0gAbVCvZbrK-0MDlQfOJlikXslRp4TJvi7eMVLx8FGw0BNXjL-xpnQW6_hpJTBrwheBLekJDF9dPjDB0tYlLBWm0b0oa",
-    databaseURL: "https://punch-buggy-e83c6.firebaseio.com/"
-  };
-  firebase.initializeApp(config);
-
-var database = firebase.database();
-let punches 
-
 let d_punches = 59;
 let w_punches = 30;
 
