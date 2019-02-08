@@ -1,0 +1,24 @@
+#title {
+    font-family: 'Lobster', cursive;
+    color: #ffee02;
+    font-size: 50pt;
+    text-align: center;
+   -webkit-text-stroke-width: 2px;
+   -webkit-text-stroke-color: orange;
+}
+
+body {
+    background-color: rgb(39, 39, 39);
+}
+
+#daniPunches {
+    color: white;
+}
+
+#willPunches {
+    color: white;
+}
+
+#confirm-button {
+    padding-top: 5px;
+}
