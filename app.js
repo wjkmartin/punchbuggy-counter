@@ -1,54 +1,83 @@
-var config = {
-    apiKey: "AAAARBOssDY:APA91bF16wbUSOA-J8F1ZMEQ0B4Ml7OKTJK3D3YKD6tpeDvL0gAbVCvZbrK-0MDlQfOJlikXslRp4TJvi7eMVLx8FGw0BNXjL-xpnQW6_hpJTBrwheBLekJDF9dPjDB0tYlLBWm0b0oa",
-    databaseURL: "https://punch-buggy-e83c6.firebaseio.com/"
-  };
-  firebase.initializeApp(config);
+var daniBuffer;
+var willBuffer;
 
-var database = firebase.database();
-let punches 
+var daniPunches;
+var willPunches;
 
-let d_punches = 59;
-let w_punches = 30;
-
-let progressBarDani;
-let progressBarWill;
-
-let daniBuffer = 0;
-let willBuffer = 0;
+var progressBarDani;
+var progressBarWill;
 
 function appStart() {
-	
-	let _progressBarDani = document.getElementById("dani-progress");
-	let _progressBarWill = document.getElementById("will-progress");
+	var _daniBuffer = 0;
+	var _willBuffer = 0;
+
+	var _daniPunches;
+	var _willPunches;
+
+	var _progressBarDani = document.getElementById("dani-progress");
+	var _progressBarWill = document.getElementById("will-progress");
+
+	daniBuffer = _daniBuffer;
+	willBuffer = _willBuffer;
+
+	daniPunches = _daniPunches;
+	willPunches = _willPunches;
 
 	progressBarDani = _progressBarDani;
 	progressBarWill = _progressBarWill;
-	update(_progressBarDani, _progressBarWill);
+
+	var config = {
+		apiKey: "AIzaSyARFzGES2rHlAp8r7jrd68sy4MqUvIhOGk",
+		authDomain: "punch-buggy-e83c6.firebaseapp.com",
+		databaseURL: "https://punch-buggy-e83c6.firebaseio.com/",
+	  };
+	  firebase.initializeApp(config);
+	
+	var ref = firebase.database();
+	
+	getData('will', ref);
+	getData('dani', ref);
+}
+
+function getData(name, ref) {
+	ref.ref('punches/').on('value', (snapshot) => {
+		if (name === 'dani') {daniPunches = snapshot.val().dani;}
+		else if (name === 'will') {willPunches = snapshot.val().will;}
+		update();
+	});
+}
+
+function setData(name, val) {
+	firebase.database().ref('punches/' + name).set(val);
 }
 
 function update() {
+	
+	willComposite = willPunches + willBuffer;
+	daniComposite = daniPunches + daniBuffer;
+
 	if (willBuffer > 0) {
 		document.getElementById("willPunches").style.color = "green";
 	}
 	else {
-		document.getElementById("willPunches").style.color = "black";
+		document.getElementById("willPunches").style.color = "white";
 	}
 
 	if (daniBuffer > 0) {
 		document.getElementById("daniPunches").style.color = "green";
 	}
 	else {
-		document.getElementById("daniPunches").style.color = "black";
+		document.getElementById("daniPunches").style.color = "white";
 	}
 
-	document.getElementById("daniPunches").innerHTML = d_punches + daniBuffer;
-	document.getElementById("willPunches").innerHTML = w_punches + willBuffer;
+	document.getElementById("daniPunches").innerHTML = daniComposite;
+	document.getElementById("willPunches").innerHTML = willComposite;
 
-	progressBarDani.setAttribute("aria-valuenow", d_punches + daniBuffer);
-	progressBarWill.setAttribute("aria-valuenow", w_punches + willBuffer);
+	progressBarDani.setAttribute("aria-valuenow", daniComposite);
+	progressBarWill.setAttribute("aria-valuenow", willComposite);
 
-	progressBarDani.setAttribute("style", 'width: ' + (d_punches + daniBuffer).toString() + '%')
-	progressBarWill.setAttribute("style", 'width: ' + (w_punches + willBuffer).toString() + '%');
+	progressBarDani.setAttribute("style", 'width: ' + (daniComposite).toString() + '%')
+	progressBarWill.setAttribute("style", 'width: ' + (willComposite).toString() + '%');
 
 }
 
@@ -63,12 +92,11 @@ function w_press() {
 }
 
 function confirm() {
-	d_punches += daniBuffer;
-	w_punches += willBuffer;
+	setData('will', willComposite);
+	setData('dani', daniComposite);
 
 	daniBuffer = 0;
 	willBuffer = 0;
 
 	update();
-	
 }

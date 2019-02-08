@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/wjkmartin/punchbuggy-counter/issues"
   },
-  "homepage": "https://github.com/wjkmartin/punchbuggy-counter#readme"
+  "homepage": "https://github.com/wjkmartin/punchbuggy-counter#readme",
+  "dependencies": {
+    "firebase": "^5.8.2"
+  }
 }
