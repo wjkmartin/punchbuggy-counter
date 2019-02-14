@@ -7,6 +7,7 @@ var willPunches;
 var progressBarDani;
 var progressBarWill;
 
+
 var buttonPressedDani;
 var buttonPressedWill;
 
@@ -16,6 +17,7 @@ function appStart() {
 
 	var _daniPunches;
 	var _willPunches;
+
 
 	var _progressBarDani = document.getElementById("dani-progress");
 	var _progressBarWill = document.getElementById("will-progress");
