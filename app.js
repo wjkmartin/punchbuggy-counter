@@ -7,12 +7,17 @@ var willPunches;
 var progressBarDani;
 var progressBarWill;
 
+
+var buttonPressedDani;
+var buttonPressedWill;
+
 function appStart() {
 	var _daniBuffer = 0;
 	var _willBuffer = 0;
 
 	var _daniPunches;
 	var _willPunches;
+
 
 	var _progressBarDani = document.getElementById("dani-progress");
 	var _progressBarWill = document.getElementById("will-progress");
@@ -79,14 +84,46 @@ function update() {
 	progressBarDani.setAttribute("style", 'width: ' + (daniComposite).toString() + '%')
 	progressBarWill.setAttribute("style", 'width: ' + (willComposite).toString() + '%');
 
+	addPictures(daniPunches, willPunches);
 }
 
+function addPictures(dPunches, wPunches) {
+	var punchImagesDani = document.getElementById('punchImagesDani');
+	var punchImagesWill = document.getElementById('punchImagesWill');
+	
+	var punchImage = document.createElement('img');
+	punchImage.src = 'punch-buggy.png';
+	punchImage.width = '30';
+	punchImage.height = '30';
+	punchImage.className = 'img-fluid.max-width: 100%';
+	punchImage.id = 'punch-image';
+
+	if (willBuffer == 0 && daniBuffer == 0){
+		for (let index = 0; index < Math.max(dPunches, wPunches); index++) {
+			if (index < dPunches) {punchImagesDani.appendChild(punchImage.cloneNode(true));}
+			if (index < wPunches) {punchImagesWill.appendChild(punchImage.cloneNode(true));}
+		}
+	}
+	
+	if (daniBuffer > 0 && buttonPressedDani) {
+			punchImagesDani.appendChild(punchImage.cloneNode(true));
+			buttonPressedDani = false;
+		}
+	if (willBuffer > 0 && buttonPressedWill) {
+			punchImagesWill.appendChild(punchImage.cloneNode(true));
+			buttonPressedWill = false;
+		}
+}
+
+
 function d_press() {
+	buttonPressedDani = true;
 	daniBuffer += 1;
 	update();
 }
 
 function w_press() {
+	buttonPressedWill = true;
 	willBuffer += 1;
 	update();
 }
