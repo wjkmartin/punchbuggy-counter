@@ -1,0 +1,96 @@
+#title {
+  font-family: 'Lobster', cursive;
+  color: #ffee02;
+  font-size: 50pt;
+  -webkit-text-stroke-width: 2px;
+  -webkit-text-stroke-color: orange;
+}
+
+body {
+  background-color: #272727;
+}
+
+#daniPunches {
+  color: white;
+}
+
+@media (max-width: 599px) {
+  #daniPunches {
+    font-size: 30px;
+  }
+}
+
+#willPunches {
+  color: white;
+}
+
+@media (max-width: 599px) {
+  #willPunches {
+    font-size: 30px;
+  }
+}
+
+#confirm-button {
+  padding-top: 5px;
+}
+
+#punch-image {
+  border-style: solid;
+  border-width: 1px;
+  border-color: yellow;
+  height: 30px;
+  width: 30px;
+}
+
+@media (max-width: 599px) {
+  #punch-image {
+    height: 10px;
+    width: 10px;
+  }
+}
+
+.punch-holder {
+  max-width: 180px;
+}
+
+#divider {
+  background-color: white;
+  height: 10px;
+}
+
+@media (max-width: 599px) {
+  #divider {
+    display: none;
+  }
+}
+
+@media (min-width: 1200px) {
+  .btn-lg {
+    height: 300px;
+  }
+}
+
+@media (max-width: 599px) {
+  .btn-lg {
+    height: 40px;
+    width: 50px;
+  }
+}
+
+.person-button-text {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  text-align: center;
+}
+
+@media (min-width: 1800px) {
+  .person-button-text {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 599px) {
+  .person-button-text {
+    font-size: 15px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

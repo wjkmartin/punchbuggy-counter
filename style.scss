@@ -1,0 +1,102 @@
+@mixin for-phone-only {
+    @media (max-width: 599px) { @content; }
+  }
+  @mixin for-tablet-portrait-up {
+    @media (min-width: 600px) { @content; }
+  }
+  @mixin for-tablet-landscape-up {
+    @media (min-width: 900px) { @content; }
+  }
+  @mixin for-desktop-up {
+    @media (min-width: 1200px) { @content; }
+  }
+  @mixin for-big-desktop-up {
+    @media (min-width: 1800px) { @content; }
+  }
+
+#title {
+    font-family: 'Lobster', cursive;
+    color: #ffee02;
+    font-size: 50pt;
+   -webkit-text-stroke-width: 2px;
+   -webkit-text-stroke-color: orange;
+}
+
+body {
+    background-color: rgb(39, 39, 39);
+}
+
+#daniPunches {
+    color: white;
+
+    @include for-phone-only {
+        font-size: 30px;
+    }
+}
+
+#willPunches {
+    color: white;
+
+    @include for-phone-only {
+        font-size: 30px;
+    }
+}
+
+#confirm-button {
+    padding-top: 5px;
+}
+
+#punch-image {
+    border-style: solid;
+    border-width: 1px;
+    border-color: yellow;
+    height: 30px;
+    width: 30px;
+
+    @include for-phone-only {
+        height: 10px;
+        width: 10px;
+    }
+}
+
+.punch-holder {
+    max-width: 180px;
+}
+
+.current-num {
+    
+}
+
+#divider {
+    background-color: white;
+    height: 10px;
+
+    @include for-phone-only {
+        display: none;
+    }
+}
+
+.btn-lg { 
+    @include for-desktop-up {
+        height: 300px;
+    }
+    @include for-phone-only {
+        height: 40px;
+        width: 50px;
+    }
+}
+
+.person-button-text {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    text-align: center;
+    
+    @include for-big-desktop-up {
+        font-size: 50px;
+    }
+    @include for-phone-only {
+        font-size: 15px;
+    }
+}
+
+
+  

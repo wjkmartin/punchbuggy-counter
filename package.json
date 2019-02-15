@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/wjkmartin/punchbuggy-counter#readme",
   "dependencies": {
-    "firebase": "^5.8.2"
+    "firebase": "^5.8.2",
+    "node-sass": "^4.11.0"
   }
 }

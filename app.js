@@ -7,7 +7,6 @@ var willPunches;
 var progressBarDani;
 var progressBarWill;
 
-
 var buttonPressedDani;
 var buttonPressedWill;
 
@@ -93,8 +92,6 @@ function addPictures(dPunches, wPunches) {
 	
 	var punchImage = document.createElement('img');
 	punchImage.src = 'punch-buggy.png';
-	punchImage.width = '30';
-	punchImage.height = '30';
 	punchImage.className = 'img-fluid.max-width: 100%';
 	punchImage.id = 'punch-image';
 
