@@ -10,23 +10,39 @@ body {
   background-color: #272727;
 }
 
-#daniPunches {
+.current-num {
   color: white;
+  font-size: 120px;
+}
+
+@media (max-width: 599px) {
+  .current-num {
+    font-size: 70px;
+    margin: auto;
+    position: relative;
+    right: 20px;
+  }
+}
+
+#daniPunches {
+  text-align: left;
 }
 
 @media (max-width: 599px) {
   #daniPunches {
-    font-size: 30px;
+    position: relative;
+    right: 50px;
   }
 }
 
 #willPunches {
-  color: white;
+  text-align: right;
 }
 
 @media (max-width: 599px) {
   #willPunches {
-    font-size: 30px;
+    position: relative;
+    left: 21px;
   }
 }
 
@@ -44,37 +60,12 @@ body {
 
 @media (max-width: 599px) {
   #punch-image {
-    height: 10px;
-    width: 10px;
+    display: none;
   }
 }
 
 .punch-holder {
   max-width: 180px;
-}
-
-#divider {
-  background-color: white;
-  height: 10px;
-}
-
-@media (max-width: 599px) {
-  #divider {
-    display: none;
-  }
-}
-
-@media (min-width: 1200px) {
-  .btn-lg {
-    height: 300px;
-  }
-}
-
-@media (max-width: 599px) {
-  .btn-lg {
-    height: 40px;
-    width: 50px;
-  }
 }
 
 .person-button-text {
@@ -91,6 +82,17 @@ body {
 @media (max-width: 599px) {
   .person-button-text {
     font-size: 15px;
+  }
+}
+
+.person-button {
+  min-width: 50px;
+  height: 200px;
+}
+
+@media (max-width: 599px) {
+  .person-button {
+    width: 200%;
   }
 }
 /*# sourceMappingURL=style.css.map */
