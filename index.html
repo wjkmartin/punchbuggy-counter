@@ -1,86 +1,119 @@
-
 <!doctype html>
 <html lang="en">
-  
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <script type="text/javascript" src="./app.js"></script>
-    <!-- Bootstrap CSS -->
-    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <title>Punchbuggy Counter</title>
-  </head>
-  
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <body onload="appStart()">
-    <div class="container-fluid">
-      <div class="row justify-content-center">
-        <div class="col-xs-12"><h1 class="text-center" id="title">Punchbuggy Counter</h1>
-        </div>
+  <script type="text/javascript" src="./app.js"></script>
+  <!-- Bootstrap CSS -->
+  <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>Punchbuggy Counter</title>
+</head>
+
+
+<body onload="appStart()">
+  <div class="container-fluid">
+    <div class="row justify-content-center">
+      <div class="col-xs-12">
+        <h1 class="text-center" id="title">Punchbuggy Counter</h1>
       </div>
     </div>
-    
-    <div class="container-fluid">
-      <div class="row align-items-center justify-content-center">
-        <div class="col-2"><button type="button" class="btn btn-primary btn-lg btn-block person-button" onclick="d_press()"><h3 class="person-button-text">Dani</h3></button></div>
-        
-        <div class="col-2 punch-holder"><div id='punchImagesDani'></div></div>
-        <div class="col-2"><h1 class="current-num" id="daniPunches">  </h1></div>
-        
-        <div class="col-2"><h1 class="current-num" id="willPunches"> </h1></div>
-        <div class="col-2 punch-holder"><div id='punchImagesWill'></div></div>
-        
-        <div class="col-2"><button type="button" class="btn btn-danger btn-lg btn-block person-button" onclick="w_press()"><h3 class="person-button-text">Will</h3></button></div>
+  </div>
+
+  <div class="container-fluid">
+    <div class="row align-items-center justify-content-center">
+      <div class="col-2"><button type="button" class="btn btn-primary btn-lg btn-block person-button" onclick="d_press()">
+          Dani
+        </button></div>
+
+      <div class="col-2 punch-holder">
+        <div id='punchImagesDani'></div>
       </div>
-    
+      <div class="col-2">
+        <h1 class="current-num" id="daniPunches">0 </h1>
+      </div>
+
+      <div class="col-2">
+        <h1 class="current-num" id="willPunches">0 </h1>
+      </div>
+      <div class="col-2 punch-holder">
+        <div id='punchImagesWill'></div>
+      </div>
+
+      <div class="col-2"><button type="button" class="btn btn-danger btn-lg btn-block person-button" onclick="w_press()">
+          Will
+        </button></div>
+    </div>
+
 
     <div class="row ">
-    <div class="col-6"> <div id="dani-progress" class="progress-bar " role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div>
-    <div class="col-6"> <div id="will-progress" class="progress-bar bg-danger" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div></div>
+      <div class="col-6">
+        <div id="dani-progress" class="progress-bar " role="progressbar" style="width: 50%" aria-valuenow="50"
+          aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div class="col-6">
+        <div id="will-progress" class="progress-bar bg-danger" role="progressbar" style="width: 50%" aria-valuenow="50"
+          aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
     </div>
 
     <div class="row">
-      <div class="col">
-        <button type="button" class="btn btn-light" onclick="confirm()">Confirm
+      <div class="col-4" id="button-holder">
+        <button id="button-confirm" type="button" class="btn btn-light" onclick="confirm()">Confirm
         </button>
-        <button type="button" class="btn btn-light" onclick="reset()">Reset
+        <button id="button-reset" type="button" class="btn btn-light" onclick="reset()">Reset
         </button>
-        <button type="button" class="btn btn-light" data-toggle="modal" data-target="#manualSet">
+        <button id="button-manuallyset" type="button" class="btn btn-light" data-toggle="modal" data-target="#manualSet">
           Manually set
         </button>
       </div>
-    </div>
+      <div class="col-8">
+        <!-- stuff   -->
+      </div>
     </div>
 
-    <div class="modal fade" id="manualSet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Edit Punches</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form name="manualChangeForm">Will: <input type="text" id="willManualOver" name="will"> Dani: <input type="text" id="daniManualOver">
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-            <button type="button" onclick="manualChange()" class="btn btn-primary" data-dismiss="modal">Save changes</button></form>
-          </div>
+    <div class="row" id="log-container">
+      <div class="col-12" >
+        <p id="log-text">Log:</p>
+        
+      </div>
+    </div>
+
+  <div class="modal fade" id="manualSet" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Edit Punches</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form name="manualChangeForm">Will: <input type="text" id="willManualOver" name="will"> Dani: <input type="text"
+              id="daniManualOver"></form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" onclick="manualChange()" class="btn btn-primary" data-dismiss="modal">Save changes</button>
         </div>
       </div>
     </div>
-    
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-  </body>
+  </div>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://www.gstatic.com/firebasejs/5.8.2/firebase.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+    crossorigin="anonymous"></script>
+</body>
+
 </html>

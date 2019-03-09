@@ -58,7 +58,7 @@ body {
     padding-top: 5px;
 }
 
-#punch-image {
+.punch-image {
     border-style: solid;
     border-width: 1px;
     border-color: yellow;
@@ -95,4 +95,42 @@ body {
     }
 }
 
-  
+#button-confirm {
+    background-color: rgb(0, 0, 0);
+    border: none;
+    color: white;
+    height: 40px;
+    margin-top: 15px;
+    min-width: 100px;
+}
+
+#button-reset {
+    background-color: rgb(99, 99, 99);
+    border: none;
+    color: white;
+    height: 40px;
+    margin-top: 15px;
+    min-width: 100px;
+}
+
+#button-manuallyset {
+    background-color: rgb(255, 255, 255);
+    border: none;
+    height: 40px;
+    margin-top: 15px;
+    min-width: 100px;
+}
+
+#button-holder {
+    margin-left: 15%;
+}
+
+#log-container {
+    margin-top: 20px;
+    background-color: rgb(65, 65, 65);
+    min-height: 500px;
+}
+
+#log-text {
+    color: white;
+}

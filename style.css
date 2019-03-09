@@ -50,7 +50,7 @@ body {
   padding-top: 5px;
 }
 
-#punch-image {
+.punch-image {
   border-style: solid;
   border-width: 1px;
   border-color: yellow;
@@ -59,7 +59,7 @@ body {
 }
 
 @media (max-width: 599px) {
-  #punch-image {
+  .punch-image {
     display: none;
   }
 }
@@ -94,5 +94,45 @@ body {
   .person-button {
     width: 200%;
   }
+}
+
+#button-confirm {
+  background-color: black;
+  border: none;
+  color: white;
+  height: 40px;
+  margin-top: 15px;
+  min-width: 100px;
+}
+
+#button-reset {
+  background-color: #636363;
+  border: none;
+  color: white;
+  height: 40px;
+  margin-top: 15px;
+  min-width: 100px;
+}
+
+#button-manuallyset {
+  background-color: white;
+  border: none;
+  height: 40px;
+  margin-top: 15px;
+  min-width: 100px;
+}
+
+#button-holder {
+  margin-left: 15%;
+}
+
+#log-container {
+  margin-top: 20px;
+  background-color: #414141;
+  min-height: 500px;
+}
+
+#log-text {
+  color: white;
 }
 /*# sourceMappingURL=style.css.map */

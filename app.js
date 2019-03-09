@@ -13,6 +13,8 @@ var buttonPressedWill;
 var willComposite;
 var daniComposite;
 
+var punchLog = [];
+
 var appStarted = false;
 
 function appStart() {
@@ -45,6 +47,8 @@ function appStart() {
 	
 	getData('will', ref);
 	getData('dani', ref);
+
+	getLog(ref);
 }
 
 function getData(name, ref) {
@@ -62,8 +66,6 @@ function setData(name, val) {
 function update() {
 	willComposite = willPunches + willBuffer;
 	daniComposite = daniPunches + daniBuffer;
-
-	console.log(willComposite);
 
 	if (willBuffer > 0) {
 		document.getElementById("willPunches").style.color = "green";
@@ -94,18 +96,19 @@ function update() {
 	willChange.value = willPunches;
 	daniChange.value = daniPunches;
 
-	addPictures();
+	
+
+ addRemovePictures();
 	
 }
 
-function addPictures(daniRemove, willRemove) {
+function addRemovePictures(daniRemove, willRemove) {
 	var punchImagesDani = document.getElementById('punchImagesDani');
 	var punchImagesWill = document.getElementById('punchImagesWill');
 	
 	var punchImage = document.createElement('img');
 	punchImage.src = 'punch-buggy.png';
-	punchImage.className = 'img-fluid.max-width: 100%';
-	punchImage.id = 'punch-image';
+	punchImage.className = 'img-fluid.max-width: 100% punch-image';
 
 	if (appStarted === false){
 		for (let index = 0; index < Math.max(daniPunches, willPunches); index++) {
@@ -125,24 +128,24 @@ function addPictures(daniRemove, willRemove) {
 		}
 
 	if (daniRemove > 0) {
-		for (let index = 0; index < daniRemove ; index++) {
-			var punchChild = document.getElementById('punch-image');
-			punchImagesDani.removeChild(punchChild);
+		let pics = punchImagesDani.children;
+		for (let i = 0; i < daniRemove; i++) {
+			pics[pics.length - 1].remove();
 		}
 	}
-	
+
 	if (willRemove > 0) {
-		for (let index = 0; index < willRemove ; index++) {
-			var punchChild = document.getElementById('punch-image');
-			punchImagesWill.removeChild(punchChild);
+		let pics = punchImagesWill.children;
+		for (let i = 0; i < willRemove; i++) {
+			pics[pics.length - 1].remove();
 		}
 	}
 
 	setTimeout(function() {
 		appStarted = true;
+		
 	}, 100);
 }
-
 
 function d_press() {
 	buttonPressedDani = true;
@@ -170,10 +173,12 @@ function reset() {
 	buttonPressedDani = false;
 	buttonPressedWill = false;
 	
-	addPictures(daniBuffer, willBuffer);
-	
+	addRemovePictures(daniBuffer, willBuffer);
+
 	daniBuffer = 0;
 	willBuffer = 0;
+
+	update();
 }
 
 function manualChange() {
@@ -189,4 +194,16 @@ function manualChange() {
 	}
 
 	update();
+}
+
+function logPunch() {
+
+}
+
+function getLog(ref) {
+	var db = ref.ref("log");
+	db.orderByChild("timestamp").limitToLast(4).on("child_added", function(snapshot) {
+		let logPost = snapshot.val();
+		console.log(logPost.timestamp);
+	});
 }
