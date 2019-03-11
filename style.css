@@ -122,17 +122,25 @@ body {
   min-width: 100px;
 }
 
-#button-holder {
-  margin-left: 15%;
-}
-
 #log-container {
   margin-top: 20px;
   background-color: #414141;
-  min-height: 500px;
 }
 
 #log-text {
   color: white;
+}
+
+#punch-log-button {
+  border: none;
+  color: white;
+  height: 40px;
+  margin-top: 15px;
+  min-width: 100px;
+}
+
+.button-holder {
+  position: relative;
+  left: 150px;
 }
 /*# sourceMappingURL=style.css.map */

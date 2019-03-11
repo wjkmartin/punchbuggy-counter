@@ -163,6 +163,8 @@ function confirm() {
 	setData('will', willComposite);
 	setData('dani', daniComposite);
 
+	logUpdate("punches", daniBuffer, willBuffer);
+
 	daniBuffer = 0;
 	willBuffer = 0;
 
@@ -182,28 +184,53 @@ function reset() {
 }
 
 function manualChange() {
+	var needLog = false;
+
 	var _willChange = Number(document.getElementById('willManualOver').value);
 	var _daniChange = Number(document.getElementById('daniManualOver').value);
 
 	if (_willChange != willPunches) {
+		needLog = true;
 		setData('will', _willChange);
 	}
 	
 	if (_daniChange != daniPunches) {
+		needLog = true;
 		setData('dani', _daniChange);
 	}
+
+	if (needLog) { logUpdate("manual_change", _willChange, _daniChange)}
 
 	update();
 }
 
-function logPunch() {
+function logUpdate(typeUpdate, daniUpdate, willUpdate) {
+	var logRef = firebase.database().ref('log/');
+	var newLogRef = logRef.push();
+	var timestamp = Math.round((new Date()).getTime() / 1000);
+	newLogRef.set({
+		type: typeUpdate,
+		dani: daniUpdate,
+		will: willUpdate,
+		timestamp: timestamp
+	});
+}
 
+function displayLog(posts) {
+	let container = document.getElementById("log-text");
+	let entry = document.createElement('div');
+	entry.className = 'log-entry';
+	var date = new Date(posts[0] * 1e3).toLocaleString().slice();
+	entry.innerHTML = `
+	On ${date} Dani + ${posts[1]} and Will + ${posts[2]}`;
+	container.appendChild(entry.cloneNode(true));
 }
 
 function getLog(ref) {
 	var db = ref.ref("log");
 	db.orderByChild("timestamp").limitToLast(4).on("child_added", function(snapshot) {
 		let logPost = snapshot.val();
-		console.log(logPost.timestamp);
+		let posts = [logPost.timestamp, logPost.dani, logPost.will]
+		displayLog(posts);
 	});
 }
