@@ -36,8 +36,10 @@ function appStart() {
 	progressBarDani = _progressBarDani;
 	progressBarWill = _progressBarWill;
 
+	var APIkey = configuration.KEY 
+
 	var config = {
-		apiKey: "AIzaSyARFzGES2rHlAp8r7jrd68sy4MqUvIhOGk",
+		apiKey: APIkey,
 		authDomain: "punch-buggy-e83c6.firebaseapp.com",
 		databaseURL: "https://punch-buggy-e83c6.firebaseio.com/",
 	  };
